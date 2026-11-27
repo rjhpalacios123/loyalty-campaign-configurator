@@ -1,10 +1,22 @@
-# Loyalty Campaign Configurator v1.4
-Open index.html locally with campaign-rules.js in the same folder. For GitHub Pages upload both files to the repository root, then enable Pages from the main branch / root in Settings.
+# Loyalty Campaign Configurator v1.6
+Upload index.html and campaign-rules.js to the same GitHub Pages directory. Edit campaign-rules.js to maintain configuration; no HTML changes required.
 
-Edit campaign-rules.js to maintain campaign-specific dropdown options and delivery channel requirements. Each campaign can override online and instore arrays independently. Each entry is [channel name, status]. Empty campaign objects inherit defaultRules. Other campaigns retain their previous dropdown options and use the new delivery matrix as a provisional default. No supportability validation is implied.
+## Defaults
+`campaignLabel` controls the first selection name. `defaultSteps` is the ordered array of subsequent selections. Each step has a unique stable `id`, `label`, and `options` array. Do not use the reserved ID `campaign`. Add, remove or reorder entries to change all campaigns.
 
-No backend, authentication or storage. Use approved private hosting for confidential business rules.
+## Per campaign
+Keys in `campaignRules` are campaign names. Add or delete keys to change the campaign list. An empty object inherits defaults. Use `stepOverrides` to change a step label or options, or set `disabled: true` to hide it. To add or reorder steps for one campaign, set `steps` to an ordered array, for example:
 
-Version 1.3: Spend & Stretch timing is Instant Reward or Deferred Reward. Channel icons are mapped by name in index.html; unknown channel names receive a generic icon.
+```js
+'Continuity': {
+  steps: [
+    ...defaultSteps.filter(s => s.id !== 'type'),
+    { id: 'frequency', label: 'Shopping Frequency', options: ['Weekly', 'Monthly'] }
+  ],
+  stepOverrides: { spend: { label: 'Spend Qualification' } }
+}
+```
 
-Version 1.4: Welcome Offer is excluded. Spend Requirements precedes Reward Timing and can be overridden per campaign using spendRequirements. Six selections are required before delivery channels appear.
+Conditional options: add `conditionalOptions: [{ when: { timing: 'Deferred Reward' }, options: ['Dollar-value','Bonus Points'] }]` to a step. Conditions reference earlier step IDs and exact option strings. First matching rule wins; otherwise the base options apply. Update conditions if you rename option values. Keep options nonempty and IDs unique. `outOfScope: true` blocks a campaign. Override `online` and `instore` arrays to change delivery channels/statuses. Existing icons are matched by channel name; unknown names get a generic icon.
+
+Progress and results automatically adapt to the active steps. Changing a selection clears downstream values. No configuration is stored by the site.
