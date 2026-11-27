@@ -3,6 +3,7 @@
 const defaultRules = {
   cadence: ['One-time', 'Recurring'],
   types: ['Basket', 'Category', 'Product'],
+  spendRequirements: ['Single transaction', 'Cumulative transaction'],
   timing: ['Instant', 'Next Shop', 'End of Campaign'],
   rewardTypes: ['Dollar-value', 'Percentage', 'Bonus Points'],
   online: [
@@ -33,7 +34,6 @@ const campaignRules = {
   },
   'Spend Ladder': {},
   'Quest': {},
-  'Welcome Offer': {},
   'Continuity': {},
   'Cross-Shop': {},
   'Challenges': {}
