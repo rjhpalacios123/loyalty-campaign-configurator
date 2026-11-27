@@ -20,3 +20,6 @@ Keys in `campaignRules` are campaign names. Add or delete keys to change the cam
 Conditional options: add `conditionalOptions: [{ when: { timing: 'Deferred Reward' }, options: ['Dollar-value','Bonus Points'] }]` to a step. Conditions reference earlier step IDs and exact option strings. First matching rule wins; otherwise the base options apply. Update conditions if you rename option values. Keep options nonempty and IDs unique. `outOfScope: true` blocks a campaign. Override `online` and `instore` arrays to change delivery channels/statuses. Existing icons are matched by channel name; unknown names get a generic icon.
 
 Progress and results automatically adapt to the active steps. Changing a selection clears downstream values. No configuration is stored by the site.
+
+### Spend & Stretch reward timing
+Single transaction permits Instant Reward and Deferred Reward. Cumulative transaction permits Deferred Reward only. Bonus Points remains available only for Deferred Reward.
