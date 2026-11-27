@@ -45,3 +45,7 @@ Set `workInProgress: true` on a campaign to show an amber WORK IN PROGRESS banne
 
 ## V1.14: Dynamic progress tracker
 Before campaign selection or after reset, the tracker displays “Select a campaign to get started” with an empty bar. After selection, the total is calculated from the active campaign steps, including the campaign selector. Blocked campaigns display “Configuration unavailable”.
+
+
+### V1.15
+Selected steps collapse into a compact editable row. Click the row to reopen its options; Done closes it without changing the value. Changing an option clears downstream selections. Reset clears all selections. All campaign configuration remains in campaign-rules.js.
