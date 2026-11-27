@@ -1,4 +1,4 @@
-# Loyalty Campaign Configurator v1.6
+# Loyalty Campaign Configurator v1.13
 Upload index.html and campaign-rules.js to the same GitHub Pages directory. Edit campaign-rules.js to maintain configuration; no HTML changes required.
 
 ## Defaults
@@ -33,3 +33,15 @@ Single transaction permits Instant Reward and Deferred Reward. Cumulative transa
 Email and Push are now in the separate Comms group. Override `comms` per campaign just like `online` and `instore`. Existing statuses are unchanged.
 
 Email and Push default to `Consent-required` (amber status).
+
+### V1.11: Banner delivery visibility
+Set `hideDelivery: true` on a banner to hide all delivery channel groups while that banner matches. The default Flybuys banner uses this setting. Changing the reward restores the groups when configuration is complete.
+
+### V1.12
+Completed selections show green checkmarks; incomplete or blocked selections retain step numbers.
+
+## Work in progress
+Set `workInProgress: true` on a campaign to show an amber WORK IN PROGRESS banner and block subsequent selections and delivery results. Set it to false or remove it to enable configuration. `outOfScope: true` takes precedence.
+
+## V1.14: Dynamic progress tracker
+Before campaign selection or after reset, the tracker displays “Select a campaign to get started” with an empty bar. After selection, the total is calculated from the active campaign steps, including the campaign selector. Blocked campaigns display “Configuration unavailable”.

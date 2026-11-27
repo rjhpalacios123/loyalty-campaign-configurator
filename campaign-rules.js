@@ -8,7 +8,7 @@ const defaultSteps = [
   { id: 'reward', label: 'Reward Type', options: ['Dollar-value', 'Percentage', 'Bonus Points'] }
 ];
 const defaultRules = {
-  banners: [{ when: { reward: 'Bonus Points' }, title: 'FLYBUYS CAMPAIGN', message: 'Campaign requests for Bonus Points must be set up through Flybuys.' }],
+  banners: [{ when: { reward: 'Bonus Points' }, hideDelivery: true, title: 'FLYBUYS CAMPAIGN', message: 'Campaign requests for Bonus Points must be set up through Flybuys.' }],
   online: [['Member Hub','Mandatory'],['Online Checkout','Conditional'],['eCommerce Pages','Conditional']],
   instore: [['POS Checkout','Applied at checkout']],
   comms: [['Email','Consent-required'],['Push','Consent-required']]
@@ -25,9 +25,9 @@ const campaignRules = {
       ] }
     }
   },
-  'Spend Ladder': {},
+  'Spend Ladder': { workInProgress: true },
   'Quest': { outOfScope: true },
-  'Continuity': {},
-  'Cross-Shop': {},
-  'Challenges': {}
+  'Continuity': { workInProgress: true },
+  'Cross-Shop': { workInProgress: true },
+  'Challenges': { workInProgress: true }
 };
