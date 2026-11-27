@@ -17,9 +17,19 @@ Keys in `campaignRules` are campaign names. Add or delete keys to change the cam
 }
 ```
 
-Conditional options: add `conditionalOptions: [{ when: { timing: 'Deferred Reward' }, options: ['Dollar-value','Bonus Points'] }]` to a step. Conditions reference earlier step IDs and exact option strings. First matching rule wins; otherwise the base options apply. Update conditions if you rename option values. Keep options nonempty and IDs unique. `outOfScope: true` blocks a campaign. Override `online` and `instore` arrays to change delivery channels/statuses. Existing icons are matched by channel name; unknown names get a generic icon.
+Conditional options: add `conditionalOptions: [{ when: { timing: 'Deferred Reward' }, options: ['Dollar-value','Bonus Points'] }]` to a step. Conditions reference earlier step IDs and exact option strings. First matching rule wins; otherwise the base options apply. Update conditions if you rename option values. Keep options nonempty and IDs unique. `outOfScope: true` blocks a campaign. Override `online`, `instore` and `comms` arrays to change delivery channels/statuses. Existing icons are matched by channel name; unknown names get a generic icon.
 
 Progress and results automatically adapt to the active steps. Changing a selection clears downstream values. No configuration is stored by the site.
 
 ### Spend & Stretch reward timing
 Single transaction permits Instant Reward and Deferred Reward. Cumulative transaction permits Deferred Reward only. Bonus Points remains available only for Deferred Reward.
+
+
+## V1.8 — Conditional informational banners
+`defaultRules.banners` contains the Flybuys notice triggered by `reward: 'Bonus Points'`. Edit its title, message or when condition as needed. Campaign-specific `banners` arrays override the default; use `banners: []` to disable. Banners do not block configuration or hide delivery channels.
+
+## V1.9 — Delivery channel groups
+
+Email and Push are now in the separate Comms group. Override `comms` per campaign just like `online` and `instore`. Existing statuses are unchanged.
+
+Email and Push default to `Consent-required` (amber status).

@@ -8,8 +8,10 @@ const defaultSteps = [
   { id: 'reward', label: 'Reward Type', options: ['Dollar-value', 'Percentage', 'Bonus Points'] }
 ];
 const defaultRules = {
-  online: [['Member Hub','Mandatory'],['Push','Conditional'],['Email','Conditional'],['Online Checkout','Conditional'],['eCommerce Pages','Conditional']],
-  instore: [['POS Checkout','Applied at checkout']]
+  banners: [{ when: { reward: 'Bonus Points' }, title: 'FLYBUYS CAMPAIGN', message: 'Campaign requests for Bonus Points must be set up through Flybuys.' }],
+  online: [['Member Hub','Mandatory'],['Online Checkout','Conditional'],['eCommerce Pages','Conditional']],
+  instore: [['POS Checkout','Applied at checkout']],
+  comms: [['Email','Consent-required'],['Push','Consent-required']]
 };
 const campaignRules = {
   'Spend & Stretch': {
