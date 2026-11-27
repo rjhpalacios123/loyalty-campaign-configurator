@@ -17,7 +17,7 @@ const defaultRules = {
 const campaignRules = {
   'Spend & Stretch': {
     cadence: ['One-time', 'Multi-week'],
-    timing: ['Instant', 'Reward', 'Deferred Reward'],
+    timing: ['Instant Reward', 'Deferred Reward'],
     rewardTypes: ['Dollar-value', 'Percentage-value'],
     rewardTypesByTiming: {
       'Deferred Reward': ['Dollar-value', 'Percentage-value', 'Bonus Points']
