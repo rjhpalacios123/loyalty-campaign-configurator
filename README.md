@@ -1,10 +1,6 @@
-# Loyalty Campaign Configurator
+# Loyalty Campaign Configurator v1.2
+Open index.html locally with campaign-rules.js in the same folder. For GitHub Pages upload both files to the repository root, then enable Pages from the main branch / root in Settings.
 
-Static prototype. Open index.html in a browser, or publish using GitHub Pages.
+Edit campaign-rules.js to maintain campaign-specific dropdown options and delivery channel requirements. Each campaign can override online and instore arrays independently. Each entry is [channel name, status]. Empty campaign objects inherit defaultRules. Other campaigns retain their previous dropdown options and use the new delivery matrix as a provisional default. No supportability validation is implied.
 
-1. Create a repository named loyalty-campaign-configurator.
-2. Upload index.html and README.md to its root and commit to main.
-3. In Settings > Pages choose Deploy from a branch, main, / (root), and Save.
-4. Share the URL shown in Pages once deployed.
-
-Edit the `fields` array in index.html to change dropdown options. Earlier changes reset later selections. All options are illustrative; no campaign combination is validated. No backend, authentication, or central storage is included. Do not publish confidential business information to a public repository or site. Clipboard access may require HTTPS.
+No backend, authentication or storage. Use approved private hosting for confidential business rules.
